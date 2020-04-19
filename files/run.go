@@ -8,6 +8,7 @@ import (
 )
 
 var sql *mysql.MySqlStruct
+var httpport string
 
 func init() {
 	log.SetFlags(log.Lshortfile | log.Ltime)
@@ -16,6 +17,8 @@ func init() {
 	haserr.Fatal(err)
 	sql, err = mysql.Open(conf.Get("dbconn"))
 	haserr.Fatal(err)
+	//
+	httpport = conf.Get("httpport")
 
 }
 
